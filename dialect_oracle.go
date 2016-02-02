@@ -133,6 +133,10 @@ func (d OracleDialect) QuotedTableForQuery(schema string, table string) string {
 	return schema + "." + d.QuoteField(table)
 }
 
+func (d OracleDialect) SupportsUpsert() bool {
+	return false
+}
+
 func (d OracleDialect) IfSchemaNotExists(command, schema string) string {
 	return fmt.Sprintf("%s if not exists", command)
 }

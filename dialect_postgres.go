@@ -134,6 +134,10 @@ func (d PostgresDialect) QuotedTableForQuery(schema string, table string) string
 	return schema + "." + d.QuoteField(table)
 }
 
+func (d PostgresDialect) SupportsUpsert() bool {
+	return false
+}
+
 func (d PostgresDialect) IfSchemaNotExists(command, schema string) string {
 	return fmt.Sprintf("%s if not exists", command)
 }
