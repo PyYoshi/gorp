@@ -1276,7 +1276,7 @@ func testCrudInternal(t *testing.T, dbmap *DbMap, val testable) {
 
 func TestUpsert(t *testing.T) {
 	dbmap := initDbMap()
-	// defer dropAndClose(dbmap)
+	defer dropAndClose(dbmap)
 	if !dbmap.Dialect.SupportsUpsert() {
 		return
 	}
